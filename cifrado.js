@@ -21,9 +21,7 @@ const encriptar = mensaje => {
   let indicesCaracter;
 
   [ ...mensaje ].forEach( caracter => {
-    console.log(caracter);
     indicesCaracter = obtenerIndices(caracter);
-    console.log('Valor de indicesCaracter:',indicesCaracter);
     //Agregamos el indice de la fila
     indicesFila.push( indicesCaracter.shift() );
     //Agregamos el indice de la columna
@@ -35,7 +33,7 @@ const encriptar = mensaje => {
   for (let i = 0; i < indicesCifrado.length; i += 2)
     mensajeCifrado += cifrar( indicesCifrado[i], indicesCifrado[i+1] ); //fila, columna
 
-  return mensajeCifrado;
+  console.log(mensajeCifrado);
 }
 
 module.exports = encriptar;

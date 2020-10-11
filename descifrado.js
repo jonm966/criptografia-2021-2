@@ -15,7 +15,7 @@ const obtenerIndices = caracter => {
 }
 
 const descifrar = mensaje => {
-  console.log(mensaje);
+  console.log('Entro a descifrado');
 }
 
 module.exports = descifrar;

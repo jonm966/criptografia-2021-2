@@ -8,11 +8,11 @@ const r1 = readline.createInterface({
   terminal: false
 });
 
-r1.on('line', () => controlador(line));
+r1.on('line', line => controlador(line));
 
 const algoritmo = {
   metodo: '',
-  ejecutar: mensaje => metodo === 'ENCRYPT'? cifrar(mensaje): descifrar(mensaje)
+  ejecutar: function(mensaje) { this.metodo === 'ENCRYPT'? cifrar(mensaje): console.log('Valor de metodo:', this.metodo) }
 };
 
 const controlador = linea => {
@@ -20,6 +20,7 @@ const controlador = linea => {
 
     case 'ENCRYPT':
       algoritmo.metodo = 'ENCRYPT';
+      console.log('Contenido:',algoritmo.metodo)
       break;
 
     case 'DECRYPT':
