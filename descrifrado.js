@@ -14,28 +14,8 @@ const obtenerIndices = caracter => {
   }
 }
 
-const encriptar = mensaje => {
-
-  const indicesColumna = [];
-  const indicesFila = [];
-  let indicesCaracter;
-
-  [ ...mensaje ].forEach( caracter => {
-    console.log(caracter);
-    indicesCaracter = obtenerIndices(caracter);
-    console.log('Valor de indicesCaracter:',indicesCaracter);
-    //Agregamos el indice de la fila
-    indicesFila.push( indicesCaracter.shift() );
-    //Agregamos el indice de la columna
-    indicesColumna.push( indicesCaracter.shift() );
-  });
-
-  const indicesCifrado = indicesFila.concat( indicesColumna );
-  let mensajeCifrado = '';
-  for (let i = 0; i < indicesCifrado.length; i += 2)
-    mensajeCifrado += cifrar( indicesCifrado[i], indicesCifrado[i+1] ); //fila, columna
-
-  return mensajeCifrado;
+const descifrar = mensaje => {
+  console.log(mensaje);
 }
 
-module.exports = encriptar;
+module.exports = descifrar;
