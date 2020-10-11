@@ -20,7 +20,6 @@ const controlador = linea => {
 
     case 'ENCRYPT':
       algoritmo.metodo = 'ENCRYPT';
-      console.log('Contenido:',algoritmo.metodo)
       break;
 
     case 'DECRYPT':
