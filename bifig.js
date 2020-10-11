@@ -1,3 +1,7 @@
+// Autor: Jonas Montoya
+// Fecha: 11/10/20
+// Descripción: Cifrado Bifig
+
 const readline = require('readline');
 const cifrar = require('./cifrado');
 const descifrar = require('./descifrado');
@@ -12,7 +16,7 @@ r1.on('line', line => controlador(line));
 
 const algoritmo = {
   metodo: '',
-  ejecutar: function(mensaje) { this.metodo === 'ENCRYPT'? cifrar(mensaje): console.log('Valor de metodo:', this.metodo) }
+  ejecutar: function(mensaje) { this.metodo === 'ENCRYPT'? cifrar(mensaje): descifrar(mensaje) }
 };
 
 const controlador = linea => {
@@ -23,7 +27,7 @@ const controlador = linea => {
       break;
 
     case 'DECRYPT':
-      ejecutar.metodo = 'DECRYPT';
+      algoritmo.metodo = 'DECRYPT';
       break;
 
     default:

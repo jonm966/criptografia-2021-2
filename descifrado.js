@@ -1,21 +1,27 @@
-// Author: Jonas Montoya
-// Date: 11/10/20
-// Description: Bifid Cipher
+// Autor: Jonas Montoya
+// Fecha: 11/10/20
+// Descripción: Métodos para descifrado
 
-const tablaCifrado = require('./tablaCifrado');
-
-const cifrar = (fila, columna) => tablaCifrado[fila][columna];
-
-const obtenerIndices = caracter => {
-  //Itera sobre las filas de la tabla
-  for ( let [indiceFila, fila] of tablaCifrado.entries() ){
-    if ( fila.includes(caracter) )
-      return [ indiceFila, fila.indexOf(caracter) ];
-  }
-}
+const tabla = require('./tablaCifrado');
 
 const descifrar = mensaje => {
-  console.log('Entro a descifrado');
+
+  let indicesCaracter;
+  let indicesMensaje = '';
+  
+  for (let caracter of mensaje){
+    indicesCaracter = tabla.obtenerIndices(caracter);
+    indicesMensaje += indicesCaracter[0] + '' + indicesCaracter[1];
+  }
+
+  const indicesFila = indicesMensaje.slice(0, indicesMensaje.length/2);
+  const indicesColumna = indicesMensaje.slice(indicesMensaje.length/2); 
+
+  let mensajeDescifrado = '';
+  for (let i = 0; i < indicesFila.length; i++)
+    mensajeDescifrado += tabla.obtenerCaracter( indicesFila[i], indicesColumna[i] );
+
+  console.log(mensajeDescifrado);
 }
 
 module.exports = descifrar;
